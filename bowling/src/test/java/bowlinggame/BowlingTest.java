@@ -21,6 +21,10 @@ public class BowlingTest {
         g.roll(5);
     }
 
+    private void rollStrike() {
+        g.roll(10);
+    }
+
     private void rollMany(int n, int pins) {
         for (int i = 0; i < n; i++) {
             g.roll(pins);
@@ -51,7 +55,7 @@ public class BowlingTest {
 
     @Test
     public void oneStrike() throws Exception {
-        g.roll(10); //strike
+        rollStrike();
         g.roll(3);
         g.roll(4);
         rollMany(16, 0);
