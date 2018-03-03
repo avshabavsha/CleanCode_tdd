@@ -16,11 +16,6 @@ public class BowlingTest {
     }
 
     @Test
-    public void canRoll() throws Exception {
-        g.roll(0);
-    }
-
-    @Test
     public void gutterGame() throws Exception {
         rollMany(20, 0);
 
