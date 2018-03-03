@@ -6,6 +6,7 @@ package bowlinggame;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class BowlingTest {
@@ -27,6 +28,16 @@ public class BowlingTest {
         rollMany(20, 1);
 
         Assert.assertEquals(20, g.score());
+    }
+
+    @Ignore
+    @Test
+    public void oneSpare() throws Exception {
+        g.roll(5);
+        g.roll(5); //spare
+        g.roll(3);
+        rollMany(17, 0);
+        Assert.assertEquals(16, g.score());
     }
 
     private void rollMany(int n, int pins) {
