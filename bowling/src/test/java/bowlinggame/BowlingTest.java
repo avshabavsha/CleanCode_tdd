@@ -16,6 +16,17 @@ public class BowlingTest {
         g = new Game();
     }
 
+    private void rollSpare() {
+        g.roll(5);
+        g.roll(5);
+    }
+
+    private void rollMany(int n, int pins) {
+        for (int i = 0; i < n; i++) {
+            g.roll(pins);
+        }
+    }
+
     @Test
     public void gutterGame() throws Exception {
         rollMany(20, 0);
@@ -32,16 +43,9 @@ public class BowlingTest {
 
     @Test
     public void oneSpare() throws Exception {
-        g.roll(5);
-        g.roll(5); //spare
+        rollSpare();
         g.roll(3);
         rollMany(17, 0);
         Assert.assertEquals(16, g.score());
-    }
-
-    private void rollMany(int n, int pins) {
-        for (int i = 0; i < n; i++) {
-            g.roll(pins);
-        }
     }
 }
