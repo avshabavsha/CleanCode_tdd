@@ -5,13 +5,18 @@ package bowlinggame;
  */
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class BowlingTest {
+    Game g;
+    @Before
+    public void setUp() throws Exception {
+        g = new Game();
+    }
 
     @Test
-    public void canCreateGame() throws Exception {
-        Game g = new Game();
-
+    public void canRoll() throws Exception {
+        g.roll(0);
     }
 }
