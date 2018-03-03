@@ -48,4 +48,13 @@ public class BowlingTest {
         rollMany(17, 0);
         Assert.assertEquals(16, g.score());
     }
+
+    @Test
+    public void oneStrike() throws Exception {
+        g.roll(10); //strike
+        g.roll(3);
+        g.roll(4);
+        rollMany(16, 0);
+        Assert.assertEquals(24, g.score());
+    }
 }
