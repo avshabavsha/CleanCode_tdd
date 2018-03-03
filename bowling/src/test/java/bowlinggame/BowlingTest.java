@@ -22,8 +22,10 @@ public class BowlingTest {
 
     @Test
     public void gutterGame() throws Exception {
-        for (int i = 0; i < 20; i++) {
-            g.roll(0);
+        int pins = 0;
+        int n = 20;
+        for (int i = 0; i < n; i++) {
+            g.roll(pins);
         }
 
         Assert.assertEquals(0, g.score());
