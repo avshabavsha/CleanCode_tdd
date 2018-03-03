@@ -14,6 +14,7 @@ public class Game {
 
     public int score() {
         for (int i = 0; i < rolls.length; i++) {
+            if(rolls[i] + rolls[i+1] == 10)
             score += rolls[i];
         }
         return score;
