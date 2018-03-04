@@ -25,9 +25,17 @@ public class NameInverterTest {
         assertInverted("", "");
     }
 
+    @Test
+    public void givenSimpleName_returnSimpleName() throws Exception {
+        assertInverted("Name", "Name");
+
+    }
 
     private String invertName(String name) {
-        return "";
+        if (name == null || name.length() <= 0) {
+            return "";
+        }
+        return name;
     }
 
 }
