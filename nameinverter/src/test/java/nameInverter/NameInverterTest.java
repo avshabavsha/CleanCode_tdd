@@ -9,16 +9,20 @@ import static org.junit.Assert.assertEquals;
  */
 public class NameInverterTest {
 
-    @Test
-    public void givenNull_ReturnsEmptyString() throws Exception {
-        String invertedName = "";
-        String originalName = null;
+    private void assertInverted(String invertedName, String originalName) {
         assertEquals(invertedName, invertName(originalName));
     }
 
     @Test
+    public void givenNull_ReturnsEmptyString() throws Exception {
+        String invertedName = "";
+        String originalName = null;
+        assertInverted("", null);
+    }
+
+    @Test
     public void givenEmptyString_ReturnsEmptyString() throws Exception {
-        assertEquals("", invertName(""));
+        assertInverted("", "");
     }
 
 
