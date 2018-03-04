@@ -15,8 +15,6 @@ public class NameInverterTest {
 
     @Test
     public void givenNull_ReturnsEmptyString() throws Exception {
-        String invertedName = "";
-        String originalName = null;
         assertInverted("", null);
     }
 
@@ -28,12 +26,20 @@ public class NameInverterTest {
     @Test
     public void givenSimpleName_returnSimpleName() throws Exception {
         assertInverted("Name", "Name");
+    }
 
+    @Test
+    public void givenFirstLast_returnLastFirst() throws Exception {
+        assertInverted("Last, First", "First Last" );
     }
 
     private String invertName(String name) {
         if (name == null || name.length() <= 0) {
             return "";
+        }else{
+            String names[] = name.split(" ");
+            if(names.length == 2)
+                return String.format("%s, %s", names[1], names[0]);
         }
         return name;
     }
