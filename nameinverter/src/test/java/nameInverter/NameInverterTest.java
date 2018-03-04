@@ -38,10 +38,12 @@ public class NameInverterTest {
             return "";
         }else{
             String names[] = name.split(" ");
-            if(names.length == 2)
-                return String.format("%s, %s", names[1], names[0]);
+            if(names.length == 1) {
+                return name;
+            }
+            return String.format("%s, %s", names[1], names[0]);
         }
-        return name;
+
     }
 
 }
