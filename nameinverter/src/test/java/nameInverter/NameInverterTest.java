@@ -14,6 +14,12 @@ public class NameInverterTest {
         assertEquals("", invertName(null));
     }
 
+    @Test
+    public void givenEmptyString_ReturnsEmptyString() throws Exception {
+        assertEquals("", invertName(""));
+    }
+
+
     private String invertName(String name) {
         return "";
     }
