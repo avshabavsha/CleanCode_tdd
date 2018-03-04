@@ -11,7 +11,9 @@ public class NameInverterTest {
 
     @Test
     public void givenNull_ReturnsEmptyString() throws Exception {
-        assertEquals("", invertName(null));
+        String invertedName = "";
+        String originalName = null;
+        assertEquals(invertedName, invertName(originalName));
     }
 
     @Test
