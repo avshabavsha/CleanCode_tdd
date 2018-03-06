@@ -16,17 +16,18 @@ public class Game {
         int score = 0;
         int firstInFrame =0;
         for (int frame = 0; frame < 10; frame++) {
-            if(isStrike(firstInFrame))
-            {
+            if(isStrike(firstInFrame)){
                 score += 10 + nextTwoBallsForStrike(firstInFrame);
                 firstInFrame++;
             }
-            if(isSpare(firstInFrame)){
+            else if(isSpare(firstInFrame)){
                 score += 10 + nextBallForSpare(rolls[firstInFrame + 2]);
+                firstInFrame += 2;
             }else {
                 score += twoBallsInFrame(firstInFrame);
+                firstInFrame += 2;
             }
-            firstInFrame += 2;
+
         }
         return score;
     }
