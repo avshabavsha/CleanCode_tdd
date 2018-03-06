@@ -51,8 +51,8 @@ public class NameInverterTest {
         if (name == null || name.length() <= 0) {
             return "";
         }else{
-            List<String> names = new ArrayList<String>(Arrays.asList(name.trim().split("\\s+")));//split the name on more than one white space
-            if (names.size() > 1 && names.get(0).equals("Mr.")){
+            List<String> names = splitNames(name);//split the name on more than one white space
+            if (names.size() > 1 && isHonorific(names.get(0))){
                 names.remove(0);
             }
             if(names.size() == 1) {
@@ -61,6 +61,14 @@ public class NameInverterTest {
                 return String.format("%s, %s", names.get(1), names.get(0));
             }
         }
+    }
+
+    private boolean isHonorific(String word) {
+        return word.equals("Mr.");
+    }
+
+    private ArrayList<String> splitNames(String name) {
+        return new ArrayList<String>(Arrays.asList(name.trim().split("\\s+")));
     }
 
 }
