@@ -47,6 +47,11 @@ public class NameInverterTest {
         assertInverted("Last, First", "Mr. First Last" );
     }
 
+    @Test
+    public void ignoreHonorificMrs() throws Exception {
+        assertInverted("Last, First", "Mrs. First Last" );
+    }
+
     private String invertName(String name) {
         if (name == null || name.length() <= 0) {
             return "";
@@ -64,7 +69,7 @@ public class NameInverterTest {
     }
 
     private boolean isHonorific(String word) {
-        return word.equals("Mr.");
+        return word.matches("Mr\\.|Mrs\\.");
     }
 
     private ArrayList<String> splitNames(String name) {
