@@ -4,8 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CleanCode_tdd.iml" filepath="$PROJECT_DIR$/.idea/CleanCode_tdd.iml" />
       <module fileurl="file://$PROJECT_DIR$/bowling/bowling.iml" filepath="$PROJECT_DIR$/bowling/bowling.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nameinverter/name-inverter.iml" filepath="$PROJECT_DIR$/nameinverter/name-inverter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/primeprinter/primeprinter.iml" filepath="$PROJECT_DIR$/primeprinter/primeprinter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nameinverter/nameinverter.iml" filepath="$PROJECT_DIR$/nameinverter/nameinverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/primeprinter/prime-printer.iml" filepath="$PROJECT_DIR$/primeprinter/prime-printer.iml" />
     </modules>
   </component>
 </project>
