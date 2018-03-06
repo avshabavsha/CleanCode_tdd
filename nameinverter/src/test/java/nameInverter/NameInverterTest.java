@@ -68,18 +68,26 @@ public class NameInverterTest {
             return "";
         }else{
             List<String> names = splitNames(name);//split the name on more than one white space
-            if (names.size() > 1 && isHonorific(names.get(0))){
-                names.remove(0);
-            }
+            removeHonorifics(names);
+
             if(names.size() == 1) {
                 return names.get(0);
             }else {
                 String postNominal  ="";
                 if(names.size() > 2)
                     postNominal = getPostNominals(names);
-                return String.format("%s, %s %s", names.get(1), names.get(0), postNominal).trim();
+                return formatName(names, postNominal);
             }
         }
+    }
+
+    private String formatName(List<String> names, String postNominal) {
+        return String.format("%s, %s %s", names.get(1), names.get(0), postNominal).trim();
+    }
+
+    private void removeHonorifics(List<String> names) {
+        if (names.size() > 1 && isHonorific(names.get(0)))
+            names.remove(0);
     }
 
     private String getPostNominals(List<String> names) {
