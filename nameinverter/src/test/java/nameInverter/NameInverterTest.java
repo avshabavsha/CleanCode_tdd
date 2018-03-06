@@ -2,6 +2,10 @@ package nameInverter;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -38,16 +42,24 @@ public class NameInverterTest {
         assertInverted("Last, First", "  First  Last   " );
     }
 
+    @Test
+    public void ignoreHonorific() throws Exception {
+        assertInverted("Last, First", "Mr. First Last" );
+    }
+
     private String invertName(String name) {
         if (name == null || name.length() <= 0) {
             return "";
         }else{
-            name = name.trim();
-            String names[] = name.split("\\s+"); //split the name on more than one white space
-            if(names.length == 1) {
-                return name;
+            List<String> names = new ArrayList<String>(Arrays.asList(name.trim().split("\\s+")));//split the name on more than one white space
+            if (names.size() > 1 && names.get(0).equals("Mr.")){
+                names.remove(0);
             }
-            return String.format("%s, %s", names[1], names[0]);
+            if(names.size() == 1) {
+                return names.get(0);
+            }else {
+                return String.format("%s, %s", names.get(1), names.get(0));
+            }
         }
     }
 
