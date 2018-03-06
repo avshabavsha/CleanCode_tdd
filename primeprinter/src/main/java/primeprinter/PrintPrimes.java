@@ -5,11 +5,13 @@ package primeprinter;
  */
 public class PrintPrimes {
     private static final int numberOfPrimes = 1000;
+    final static int linesPerPage = 50;
+    final static int columns = 4;
 
     public static void main(String[] args) {
-        PrimePrinterHelper primePrinterHelper = new PrimePrinterHelper();
-        int[] primes = new PrimePrinterHelper().generatePrime();
-        primePrinterHelper.printNumbers(primes, numberOfPrimes);
+        PrimeGenerator primeGenerator = new PrimeGenerator();
+        int[] primes = primeGenerator.generatePrime(numberOfPrimes);
+        new NumberPrinter(linesPerPage, columns).print(primes, numberOfPrimes);
     }
 
 }

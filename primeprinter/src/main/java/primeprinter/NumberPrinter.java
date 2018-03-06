@@ -6,8 +6,6 @@ package primeprinter;
 class NumberPrinter {
     private int linesPerPage;
     private int columns;
-    private int[] numbers;
-    private int numberOfNumbers;
 
     public NumberPrinter(int linesPerPage, int columns) {
         this.linesPerPage = linesPerPage;
