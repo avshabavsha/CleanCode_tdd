@@ -55,6 +55,7 @@ public class NameInverterTest {
     @Test
     public void postNominals_stayAtEnd() throws Exception {
         assertInverted("Last, First Sr.", "First Last Sr." );
+        assertInverted("Last, First BS. Phd.", "First Last Sr. Phd" );
     }
 
     private String invertName(String name) {
