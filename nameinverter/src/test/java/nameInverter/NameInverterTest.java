@@ -52,6 +52,11 @@ public class NameInverterTest {
         assertInverted("Last, First", "Mrs. First Last" );
     }
 
+    @Test
+    public void postNominals_stayAtEnd() throws Exception {
+        assertInverted("Last, First Sr.", "First Last Sr." );
+    }
+
     private String invertName(String name) {
         if (name == null || name.length() <= 0) {
             return "";
@@ -63,7 +68,10 @@ public class NameInverterTest {
             if(names.size() == 1) {
                 return names.get(0);
             }else {
-                return String.format("%s, %s", names.get(1), names.get(0));
+                String postNominal  ="";
+                if(names.size() > 2)
+                    postNominal = names.get(2);
+                return String.format("%s, %s %s", names.get(1), names.get(0), postNominal).trim();
             }
         }
     }
