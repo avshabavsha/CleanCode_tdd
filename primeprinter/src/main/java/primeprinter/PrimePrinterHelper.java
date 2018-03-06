@@ -4,7 +4,7 @@ package primeprinter;
  * Created by avshalomMac on 05/03/2018.
  */
 class PrimePrinterHelper {
-    final int numberOfPrimes = 1000;
+    private static final int numberOfPrimes = 1000;
     final int linesPerPage = 50;
     final int columns = 4;
     final int ordmax = 30;
@@ -21,7 +21,7 @@ class PrimePrinterHelper {
     private int n;
     private int multiples[] = new int[ordmax + 1];
 
-    public void invoke() {
+    public int[] generatePrime() {
         n =0 ;
 
         candidate = 1;
@@ -52,11 +52,10 @@ class PrimePrinterHelper {
             primes[primeindex] = candidate;
         }
 
-        printNumbers(primes, numberOfPrimes);
-
+        return primes;
     }
 
-    private void printNumbers(int numbers[], int numberOfNumbers) {
+    public void printNumbers(int numbers[], int numberOfNumbers) {
         pagenumber = 1;
         pageoffset = 1;
         while (pageoffset <= numberOfNumbers) {
