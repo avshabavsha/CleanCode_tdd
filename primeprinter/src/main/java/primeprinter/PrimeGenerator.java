@@ -6,10 +6,6 @@ package primeprinter;
 class PrimeGenerator {
     final int ordmax = 30;
 
-    private int pagenumber;
-    private int pageoffset;
-    private int rowoffset;
-    private int column;
     private int candidate;
     private int primeindex;
     private boolean possiblyPrime;
@@ -55,10 +51,6 @@ class PrimeGenerator {
         } while (!possiblyPrime);
         primeindex = primeindex + 1;
         primes[primeindex] = candidate;
-    }
-
-    public void printNumbers(int numbers[], int numberOfNumbers) {
-
     }
 
 }
