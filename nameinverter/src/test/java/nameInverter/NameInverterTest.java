@@ -79,26 +79,27 @@ public class NameInverterTest {
     }
 
     private String formatMuliElementName(List<String> names) {
-        String postNominal  ="";
-        if(names.size() > 2)
-            postNominal = getPostNominals(names);
-        return String.format("%s, %s %s", names.get(1), names.get(0), postNominal).trim();
+        String postNominal = getPostNominals(names);
+        String firstName = names.get(0);
+        String lastName = names.get(1);
+        return String.format("%s, %s %s", lastName, firstName, postNominal).trim();
+    }
+
+    private String getPostNominals(List<String> names) {
+        String postNominalString = "";
+        if(names.size() > 2) {
+            List<String> postNominals = names.subList(2, names.size());
+            for (String pn :postNominals) {
+                postNominalString += pn + " ";
+            }
+        }
+        return postNominalString;
     }
 
     private List<String> removeHonorifics(List<String> names) {
         if (names.size() > 1 && isHonorific(names.get(0)))
             names.remove(0);
         return names;
-    }
-
-    private String getPostNominals(List<String> names) {
-        List<String> postNominals;
-        postNominals = names.subList(2, names.size());
-        String postNominal = "";
-        for (String pn :postNominals) {
-            postNominal += pn + " ";
-        }
-        return postNominal;
     }
 
     private boolean isHonorific(String word) {
