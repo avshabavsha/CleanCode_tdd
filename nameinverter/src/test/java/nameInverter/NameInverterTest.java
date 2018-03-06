@@ -58,6 +58,11 @@ public class NameInverterTest {
         assertInverted("Last, First BS. Phd.", "First Last BS. Phd." ); //same logical assertion
     }
 
+    @Test
+    public void integration() throws Exception {
+        assertInverted("Martin, Robert III esq.", "   Robert   Martin III esq.   ");
+    }
+
     private String invertName(String name) {
         if (name == null || name.length() <= 0) {
             return "";
