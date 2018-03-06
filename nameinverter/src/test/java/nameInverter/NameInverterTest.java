@@ -64,30 +64,31 @@ public class NameInverterTest {
     }
 
     private String invertName(String name) {
-        if (name == null || name.length() <= 0) {
+        if (name == null || name.length() <= 0)
             return "";
-        }else{
-            List<String> names = splitNames(name);//split the name on more than one white space
-            removeHonorifics(names);
-
-            if(names.size() == 1) {
-                return names.get(0);
-            }else {
-                return formatName(names);
-            }
-        }
+        else
+            return formatName(removeHonorifics(splitNames(name)));
     }
 
     private String formatName(List<String> names) {
+        if(names.size() == 1) {
+            return names.get(0);
+        }else {
+            return formatMuliElementName(names);
+        }
+    }
+
+    private String formatMuliElementName(List<String> names) {
         String postNominal  ="";
         if(names.size() > 2)
             postNominal = getPostNominals(names);
         return String.format("%s, %s %s", names.get(1), names.get(0), postNominal).trim();
     }
 
-    private void removeHonorifics(List<String> names) {
+    private List<String> removeHonorifics(List<String> names) {
         if (names.size() > 1 && isHonorific(names.get(0)))
             names.remove(0);
+        return names;
     }
 
     private String getPostNominals(List<String> names) {
