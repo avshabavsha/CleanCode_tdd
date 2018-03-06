@@ -33,17 +33,22 @@ public class NameInverterTest {
         assertInverted("Last, First", "First Last" );
     }
 
+    @Test
+    public void givenFirstLastWithExtraSpaces_returnLastFirst() throws Exception {
+        assertInverted("Last, First", "  First  Last   " );
+    }
+
     private String invertName(String name) {
         if (name == null || name.length() <= 0) {
             return "";
         }else{
-            String names[] = name.split(" ");
+            name = name.trim();
+            String names[] = name.split("\\s+"); //split the name on more than one white space
             if(names.length == 1) {
                 return name;
             }
             return String.format("%s, %s", names[1], names[0]);
         }
-
     }
 
 }
