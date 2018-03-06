@@ -1,5 +1,6 @@
 package nameInverter;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,9 +13,15 @@ import static org.junit.Assert.assertEquals;
  * Created by avshaloms on 04/03/2018.
  */
 public class NameInverterTest {
+    private NameInverter nameInverter;
+
+    @Before
+    public void setUp() throws Exception {
+        nameInverter = new NameInverter();
+    }
 
     private void assertInverted(String invertedName, String originalName) {
-        assertEquals(invertedName, invertName(originalName));
+        assertEquals(invertedName, nameInverter.invertName(originalName));
     }
 
     @Test
@@ -63,51 +70,52 @@ public class NameInverterTest {
         assertInverted("Martin, Robert III esq.", "   Robert   Martin III esq.   ");
     }
 
-    private String invertName(String name) {
-        if (name == null || name.length() <= 0)
-            return "";
-        else
-            return formatName(removeHonorifics(splitNames(name)));
-    }
-
-    private String formatName(List<String> names) {
-        if(names.size() == 1) {
-            return names.get(0);
-        }else {
-            return formatMuliElementName(names);
+    static class NameInverter{
+        private String invertName(String name) {
+            if (name == null || name.length() <= 0)
+                return "";
+            else
+                return formatName(removeHonorifics(splitNames(name)));
         }
-    }
 
-    private String formatMuliElementName(List<String> names) {
-        String postNominal = getPostNominals(names);
-        String firstName = names.get(0);
-        String lastName = names.get(1);
-        return String.format("%s, %s %s", lastName, firstName, postNominal).trim();
-    }
-
-    private String getPostNominals(List<String> names) {
-        String postNominalString = "";
-        if(names.size() > 2) {
-            List<String> postNominals = names.subList(2, names.size());
-            for (String pn :postNominals) {
-                postNominalString += pn + " ";
+        private String formatName(List<String> names) {
+            if(names.size() == 1) {
+                return names.get(0);
+            }else {
+                return formatMuliElementName(names);
             }
         }
-        return postNominalString;
-    }
 
-    private List<String> removeHonorifics(List<String> names) {
-        if (names.size() > 1 && isHonorific(names.get(0)))
-            names.remove(0);
-        return names;
-    }
+        private String formatMuliElementName(List<String> names) {
+            String postNominal = getPostNominals(names);
+            String firstName = names.get(0);
+            String lastName = names.get(1);
+            return String.format("%s, %s %s", lastName, firstName, postNominal).trim();
+        }
 
-    private boolean isHonorific(String word) {
-        return word.matches("Mr\\.|Mrs\\.");
-    }
+        private String getPostNominals(List<String> names) {
+            String postNominalString = "";
+            if(names.size() > 2) {
+                List<String> postNominals = names.subList(2, names.size());
+                for (String pn :postNominals) {
+                    postNominalString += pn + " ";
+                }
+            }
+            return postNominalString;
+        }
 
-    private ArrayList<String> splitNames(String name) {
-        return new ArrayList<String>(Arrays.asList(name.trim().split("\\s+")));
-    }
+        private List<String> removeHonorifics(List<String> names) {
+            if (names.size() > 1 && isHonorific(names.get(0)))
+                names.remove(0);
+            return names;
+        }
 
+        private boolean isHonorific(String word) {
+            return word.matches("Mr\\.|Mrs\\.");
+        }
+
+        private ArrayList<String> splitNames(String name) {
+            return new ArrayList<String>(Arrays.asList(name.trim().split("\\s+")));
+        }
+    }
 }
