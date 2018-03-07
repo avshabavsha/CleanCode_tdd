@@ -12,14 +12,18 @@ public class PrimeFactorsTest {
     @Test
     public void canFactorIntoPrimes() throws Exception {
         Assert.assertEquals(list(), of(1));
+        Assert.assertEquals(list(2), of(2));
 
     }
 
     private List<Integer> of(int n) {
-        return new ArrayList<Integer>();
+        ArrayList<Integer> factors = new ArrayList<Integer>();
+        if(n == 2)
+            factors.add(2);
+        return factors;
     }
 
-    private List<Integer> list() {
-        return Arrays.asList();
+    private List<Integer> list(Integer... ints) {
+        return Arrays.asList(ints);
     }
 }
