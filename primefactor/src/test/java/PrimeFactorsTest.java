@@ -11,15 +11,19 @@ import java.util.List;
 public class PrimeFactorsTest {
     @Test
     public void canFactorIntoPrimes() throws Exception {
-        Assert.assertEquals(list(), of(1));
-        Assert.assertEquals(list(2), of(2));
+        assertPrimeFactors(1, list());
+        assertPrimeFactors(2, list(2));
+        assertPrimeFactors(3, list(3));
+    }
 
+    private void assertPrimeFactors(int n, List<Integer> primeFactors) {
+        Assert.assertEquals(primeFactors, of(n));
     }
 
     private List<Integer> of(int n) {
         ArrayList<Integer> factors = new ArrayList<Integer>();
         if(n > 1)
-            factors.add(2);
+            factors.add(n);
         return factors;
     }
 
