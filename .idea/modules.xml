@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/bowling/bowling.iml" filepath="$PROJECT_DIR$/bowling/bowling.iml" />
       <module fileurl="file://$PROJECT_DIR$/nameinverter/nameinverter.iml" filepath="$PROJECT_DIR$/nameinverter/nameinverter.iml" />
       <module fileurl="file://$PROJECT_DIR$/primeprinter/prime-printer.iml" filepath="$PROJECT_DIR$/primeprinter/prime-printer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/primefactor/primefactor.iml" filepath="$PROJECT_DIR$/primefactor/primefactor.iml" />
     </modules>
   </component>
 </project>

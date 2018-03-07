@@ -10,6 +10,7 @@
         <module name="name-inverter" />
         <module name="nameinverter" />
         <module name="prime-printer" />
+        <module name="primefactor" />
         <module name="primeprinter" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
       <module name="name-inverter" target="1.5" />
       <module name="nameinverter" target="1.5" />
       <module name="prime-printer" target="1.5" />
+      <module name="primefactor" target="1.5" />
       <module name="primeprinter" target="1.5" />
     </bytecodeTargetLevel>
   </component>
