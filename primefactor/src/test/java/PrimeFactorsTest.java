@@ -14,6 +14,7 @@ public class PrimeFactorsTest {
         assertPrimeFactors(1, list());
         assertPrimeFactors(2, list(2));
         assertPrimeFactors(3, list(3));
+        assertPrimeFactors(4, list(2,2));
     }
 
     private void assertPrimeFactors(int n, List<Integer> primeFactors) {
@@ -22,8 +23,14 @@ public class PrimeFactorsTest {
 
     private List<Integer> of(int n) {
         ArrayList<Integer> factors = new ArrayList<Integer>();
-        if(n > 1)
-            factors.add(n);
+        if(n > 1) {
+            if(n%2 == 0) {
+                factors.add(2);
+                n /= 2;
+            }
+            if(n>1)
+                factors.add(n);
+        }
         return factors;
     }
 
